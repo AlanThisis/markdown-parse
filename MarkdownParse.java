@@ -13,6 +13,8 @@ public class MarkdownParse {
         int pastCloseParen = 0;
         while(currentIndex < markdown.length()) {
             int nextOpenBracket = markdown.indexOf("[", currentIndex);
+
+            System.out.println("Value of current index before loop: " + currentIndex);
             int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
             int openParen = markdown.indexOf("(", nextCloseBracket);
             int closeParen = markdown.indexOf(")", openParen);
@@ -21,13 +23,13 @@ public class MarkdownParse {
                 break;
             }
             pastCloseParen = closeParen;
-
-            toReturn.add(markdown.substring(openParen + 1, closeParen));
+            if(!markdown.substring(nextOpenBracket-1, nextOpenBracket).equals("!")){
+                toReturn.add(markdown.substring(openParen + 1, closeParen));
+            }
             currentIndex = closeParen + 1;
+            System.out.println("Value of current index after loop: " + currentIndex);
         }
-        System.out.println(currentIndex);
         return toReturn;
-        
     }
     public static void main(String[] args) throws IOException {
 		Path fileName = Path.of(args[0]);
