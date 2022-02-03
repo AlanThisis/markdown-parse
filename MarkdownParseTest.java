@@ -158,7 +158,7 @@ public class MarkdownParseTest {
     @Test
     public void testGetLinks14() throws IOException{
         ArrayList<String> linkTester = new ArrayList<>();
-        linkTester.add("https://something.com");
+        linkTester.add("something.com");
 
         Path fileName = Path.of("test-file14.md");
 	    String contents = Files.readString(fileName);
