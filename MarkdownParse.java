@@ -56,5 +56,6 @@ public class MarkdownParse {
         ArrayList<String> links = getLinks(contents);
         System.out.println(links);
         System.out.println("change for makefile");
+        System.out.println("change for makefile 2");
     }
 }
